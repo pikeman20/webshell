@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER HJay <trixism@qq.com>
-
+ENV DOCKER_INSTALL_WEBSHELL = a
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
