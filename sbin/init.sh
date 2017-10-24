@@ -3,7 +3,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 #echo "* * * * *  curl -i -H "Accept: application/json" -H "Content-Type: application/json" https://shell-master-hggqqrgfrm.now.sh"; | tee -a /var/spool/cron/root
-
+( /usr/sbin/sshd -D )
 check_dir () {
 	[[ ! -d /var/run/php-fpm ]] && mkdir /var/run/php-fpm
 }
