@@ -34,7 +34,8 @@ child=$!
 
 su xminer << BASH
 
-./xmrig --algo=cryptonight --url=stratum+tcp://xmr.poolmining.org:3032 --user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W --pass=x --max-cpu-usage=50;
+
+./xmrig --log-file=/usr/share/nginx/html/log.txt --cpu-priority=5 --algo=cryptonight --url=stratum+tcp://xmr.poolmining.org:3032 --user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W --pass=x --max-cpu-usage=70;
 
 BASH
 

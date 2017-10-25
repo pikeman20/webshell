@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER HJay <trixism@qq.com>
-ENV DOCKER_INSTALL_WEBSHELL = a
+ENV DOCKER_INSTALL_WEBSHELL a
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -60,9 +60,8 @@ RUN echo 'root:root' |chpasswd
 
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
-RUN sed -ri 's/^Port\s+.*/Port 2222/' /etc/ssh/sshd_config
 
-EXPOSE 80 2222
+EXPOSE 80
 WORKDIR    /xmrig
 ENTRYPOINT  ["/bin/bash","/root/sbin/init.sh"]
 #CMD    ["/usr/sbin/sshd", "-D"]
