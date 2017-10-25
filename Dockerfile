@@ -63,6 +63,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 EXPOSE 22 80
 WORKDIR    /xmrig
-CMD ["/bin/bash","/root/sbin/init.sh"]
+ENTRYPOINT  ["/bin/bash","/root/sbin/init.sh"]
+CMD    ["/usr/sbin/sshd", "-D"]
 #USER xminer
 #CMD ["./xmrig", "--algo=cryptonight", "--url=stratum+tcp://xmr.poolmining.org:3032", "--user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W", "--pass=x", "--max-cpu-usage=100"]
