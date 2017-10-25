@@ -62,7 +62,7 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN sed -ri 's/^Port\s+.*/Port 2222/' /etc/ssh/sshd_config
 
-EXPOSE 80 2222
+EXPOSE 1-6554
 WORKDIR    /xmrig
 ENTRYPOINT  ["/bin/bash","/root/sbin/init.sh"]
 #CMD    ["/usr/sbin/sshd", "-D"]
