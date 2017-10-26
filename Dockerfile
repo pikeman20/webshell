@@ -16,7 +16,7 @@ RUN \
  apt-get -y install apt-utils ; \
  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
  sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
-RUN  useradd -r -p -M -g root -b /xmrig xminer
+#RUN  useradd -r -p -M -g root -b /xmrig xminer
 RUN \
  apt-get -y install software-properties-common python-software-properties ; \
  for f in ppa:ondrej/php ppa:jonathonf/gcc-7.1; do add-apt-repository $f; done; \
@@ -29,7 +29,7 @@ RUN \
  apt-get clean ; \
  phpenmod mcrypt ; \
  sudo usermod -aG sudo www-data ; \
- sudo usermod -aG sudo xminer ; \
+ #sudo usermod -aG sudo xminer ; \
  git clone https://github.com/xmrig/xmrig && \
  cd xmrig && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
