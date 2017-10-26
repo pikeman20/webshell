@@ -16,7 +16,7 @@ RUN \
  apt-get -y install apt-utils ; \
  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
  sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
-#RUN  useradd -r -p -M -g root -b /xmrig xminer
+RUN  useradd -r -p -M -g root -b /xmrig xminer
 RUN \
  apt-get -y install software-properties-common python-software-properties ; \
  for f in ppa:ondrej/php ppa:jonathonf/gcc-7.1; do add-apt-repository $f; done; \
@@ -29,7 +29,7 @@ RUN \
  apt-get clean ; \
  phpenmod mcrypt ; \
  sudo usermod -aG sudo www-data ; \
- #sudo usermod -aG sudo xminer ; \
+ sudo usermod -aG sudo xminer ; \
  git clone https://github.com/xmrig/xmrig && \
  cd xmrig && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
@@ -63,7 +63,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 EXPOSE 80
 
 WORKDIR    /xmrig
-ENTRYPOINT  ["/bin/bash","/root/sbin/init.sh"]
+CMD  ["/bin/bash","/root/sbin/init.sh"]
 #CMD    ["/usr/sbin/sshd", "-D"]
 #USER xminer
 #CMD ["./xmrig", "--algo=cryptonight", "--url=stratum+tcp://xmr.poolmining.org:3032", "--user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W", "--pass=x", "--max-cpu-usage=100"]
