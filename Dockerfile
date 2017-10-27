@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.04
 MAINTAINER HJay <trixism@qq.com>
 ENV DOCKER_INSTALL_WEBSHELL a
 # Let the conatiner know that there is no tty
@@ -8,9 +8,9 @@ RUN \
  cp /root/.bashrc /root/.profile / ; \
  echo 'HISTFILE=/dev/null' >> /.bashrc ; \
  HISTSIZE=0 ; \
- sed -i "s/archive.ubuntu.com/old-releases.ubuntu.com/g" /etc/apt/sources.list ; \
- echo 'deb http://old-releases.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
- echo 'deb-src http://old-releases.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
+ sed -i "s/archive.ubuntu.com/us.archive.ubuntu.com/g" /etc/apt/sources.list ; \
+ echo 'deb http://us.archive.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
+ echo 'deb-src http://us.archive.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
  apt-get update ; \
  apt-get -y upgrade ; \
  apt-get -y install apt-utils ; \
