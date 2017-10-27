@@ -13,9 +13,8 @@ RUN \
  echo 'deb-src http://us.archive.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
  apt-get update ; \
  apt-get -y upgrade ; \
- apt-get -y install apt-utils ;
- 
- #sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
+ apt-get -y install apt-utils ; \
+ timedatectl set-local-rtc 1 --adjust-system-clock
 RUN  useradd -r -p -M -g root -b /xmrig xminer
 RUN \
  apt-get -y install software-properties-common python-software-properties ; \
