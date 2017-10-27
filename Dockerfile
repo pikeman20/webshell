@@ -13,9 +13,9 @@ RUN \
  echo 'deb-src http://us.archive.ubuntu.com/ubuntu/ trusty multiverse' >> /etc/apt/sources.list ; \
  apt-get update ; \
  apt-get -y upgrade ; \
- apt-get -y install apt-utils ; \
- cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
- sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
+ apt-get -y install apt-utils ;
+ 
+ #sed -i 's/UTC=yes/UTC=no/' /etc/default/rcS
 RUN  useradd -r -p -M -g root -b /xmrig xminer
 RUN \
  apt-get -y install software-properties-common python-software-properties ; \
