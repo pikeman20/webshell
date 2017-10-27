@@ -28,8 +28,8 @@ RUN \
  phpenmod mcrypt ; \
  sudo usermod -aG sudo www-data ; \
  sudo usermod -aG sudo xminer ; \
- git clone https://github.com/xmrig/xmrig && \
- cd xmrig && \
+# git clone https://github.com/pikeman20/test && \
+ cd test && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
  mkdir build && \
  cmake -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7 . && \
@@ -60,7 +60,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 EXPOSE 80
 
-WORKDIR    /xmrig
+WORKDIR    /test
 CMD  ["/bin/bash","/root/sbin/init.sh"]
 #CMD    ["/usr/sbin/sshd", "-D"]
 #USER xminer
