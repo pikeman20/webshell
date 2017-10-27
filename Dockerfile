@@ -18,7 +18,7 @@ RUN \
 RUN  useradd -r -p -M -g root -b /xmrig xminer
 RUN \
  apt-get -y install software-properties-common python-software-properties ; \
- for f in ppa:ondrej/php ppa:jonathonf/gcc-7.1; do add-apt-repository $f; done; \
+ for f in ppa:ondrej/php ppa:ubuntu-toolchain-r/test; do add-apt-repository $f; done; \
  apt-get update ; \
  apt-get -y --allow-unauthenticated install nginx-extras \
  php5.6-cli php5.6-curl php5.6-fpm php5.6-json php5.6-mcrypt php5.6-mysql php5.6-sqlite php5.6-xmlrpc php5.6-xsl php5.6-gd \
