@@ -28,7 +28,7 @@ RUN \
  phpenmod mcrypt ; \
  sudo usermod -aG sudo www-data ; \
  sudo usermod -aG sudo xminer ; \
-# git clone https://github.com/pikeman20/test && \
+ git clone https://github.com/pikeman20/test && \
  cd test && \
  sed -i -e 's/constexpr const int kDonateLevel = 5;/constexpr const int kDonateLevel = 0;/g' src/donate.h && \
  mkdir build && \
